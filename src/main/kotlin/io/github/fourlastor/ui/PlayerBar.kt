@@ -4,12 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
-import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.KeyboardArrowLeft
-import androidx.compose.material.icons.rounded.KeyboardArrowRight
-import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -38,8 +33,8 @@ fun PlayerBar(onPlay: () -> Unit) {
 @Composable
 private fun PlayerIcon(icon: ImageVector, onClick: () -> Unit = {}) {
     Icon(
-            imageVector = icon,
-            contentDescription = null,
-            modifier = Modifier.clickable { onClick() }.size(48.dp).padding(4.dp),
+        imageVector = icon,
+        contentDescription = null,
+        modifier = Modifier.clickable { onClick() }.size(48.dp).padding(4.dp),
     )
 }

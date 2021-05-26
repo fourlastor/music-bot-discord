@@ -2,8 +2,6 @@ package io.github.fourlastor.music
 
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayer
 import com.sedmelluq.discord.lavaplayer.player.AudioPlayerManager
-import com.sedmelluq.discord.lavaplayer.player.event.AudioEventAdapter
-import net.dv8tion.jda.api.audio.AudioSendHandler
 
 
 /**

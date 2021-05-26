@@ -9,9 +9,10 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import net.dv8tion.jda.api.entities.Guild
+import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
-class PlayMusic(private val bot: MusicBot) {
+class PlayMusic @Inject constructor(private val bot: MusicBot) {
     operator fun invoke(guild: Guild, fileName: String): Flow<Action> = flow {
         emit(TrackLoading(fileName))
         val trackPlayed = bot.play(guild, fileName)

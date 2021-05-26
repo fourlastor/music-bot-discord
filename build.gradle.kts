@@ -4,6 +4,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     kotlin("jvm") version "1.4.31"
+    kotlin("kapt") version "1.4.31"
     id("org.jetbrains.compose") version "0.4.0-build173"
 }
 
@@ -20,6 +21,8 @@ repositories {
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/compose/dev") }
 }
 
+val daggerVersion = "2.36"
+
 dependencies {
     implementation(compose.desktop.currentOs)
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.4.2")
@@ -27,6 +30,8 @@ dependencies {
     implementation("com.sedmelluq:lavaplayer:1.3.73")
     implementation("com.squareup.okhttp3:okhttp:4.9.0")
     implementation("ru.gildor.coroutines:kotlin-coroutines-okhttp:1.0")
+    implementation("com.google.dagger:dagger:$daggerVersion")
+    kapt("com.google.dagger:dagger-compiler:$daggerVersion")
 }
 
 tasks.withType<KotlinCompile>() {

@@ -4,7 +4,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.fourlastor.ui.FileTree
 
 @Composable
 fun DirectoryList(fileTree: FileTree, onClick: (FileTree.Item) -> Unit) {

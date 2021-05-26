@@ -9,20 +9,16 @@ import kotlinx.coroutines.launch
 import net.dv8tion.jda.api.JDABuilder
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent
 import net.dv8tion.jda.api.hooks.ListenerAdapter
-import net.dv8tion.jda.api.requests.GatewayIntent
+import javax.inject.Inject
 
-class MusicApp(private val botKey: String) {
+class MusicApp @Inject constructor(private val jdaBuilder: JDABuilder) {
     private val actions = MutableSharedFlow<Action>()
     private val _state = MutableStateFlow(State.empty())
 
     val state: StateFlow<State> = _state
 
     fun start() = GlobalScope.launch {
-        val jda = JDABuilder.create(
-            botKey,
-            GatewayIntent.GUILD_MESSAGES,
-            GatewayIntent.GUILD_VOICE_STATES
-        )
+        val jda = jdaBuilder
             .addEventListeners(object : ListenerAdapter() {
                 override fun onGuildReady(event: GuildReadyEvent) {
                     update(AddGuild(event.guild))

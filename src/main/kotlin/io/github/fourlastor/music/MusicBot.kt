@@ -10,11 +10,14 @@ import com.sedmelluq.discord.lavaplayer.track.AudioTrack
 import kotlinx.coroutines.*
 import net.dv8tion.jda.api.entities.Guild
 import net.dv8tion.jda.api.managers.AudioManager
+import javax.inject.Inject
+import javax.inject.Singleton
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
+@Singleton
 @ExperimentalCoroutinesApi
-class MusicBot {
+class MusicBot @Inject constructor() {
     private val playerManager: AudioPlayerManager
     private val musicManagers: MutableMap<Long, GuildMusicManager>
 
